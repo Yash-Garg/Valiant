@@ -1,4 +1,4 @@
-package com.example.genpass
+package com.yashgarg.valiant
 
 import io.flutter.embedding.android.FlutterActivity
 
