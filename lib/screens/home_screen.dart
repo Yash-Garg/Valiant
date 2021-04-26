@@ -63,21 +63,44 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Padding(padding: EdgeInsets.all(5)),
-                        Container(
-                          height: 180,
-                          decoration: new BoxDecoration(
-                            color: secondaryColor,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                new BorderRadius.all(Radius.circular(12)),
-                          ),
-                          child: Center(
-                              child: Text(
-                            "n6gQ28%Wr5U*Bvbee!%tW4#X!R7",
-                            style: TextStyle(fontSize: 18),
-                            maxLines: 5,
-                          )),
-                        ),
+                        Stack(
+                          children: [
+                            Container(
+                              height: 180,
+                              decoration: new BoxDecoration(
+                                color: secondaryColor,
+                                shape: BoxShape.rectangle,
+                                borderRadius:
+                                    new BorderRadius.all(Radius.circular(12)),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "n6gQ28%Wr5U*Bvbee!%tW4#X!R7",
+                                  style: TextStyle(fontSize: 18),
+                                  maxLines: 5,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Material(
+                                color: Colors.transparent,
+                                shape: CircleBorder(),
+                                clipBehavior: Clip.antiAlias,
+                                child: Padding(
+                                  padding: EdgeInsets.all(5),
+                                  child: IconButton(
+                                    iconSize: 20,
+                                    icon: Icon(Icons.content_copy),
+                                    color: Colors.white,
+                                    onPressed: () {},
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
