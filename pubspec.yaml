@@ -18,8 +18,18 @@ dependencies:
   share: ^2.0.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: false
+  remove_alpha_ios: true
+  image_path_ios: "assets/icons/ic_launcher.png"
+  image_path_android: "assets/icons/ic_launcher.png"
+  adaptive_icon_background: "#e3f8fa"
+  adaptive_icon_foreground: "assets/icons/ic_icon.png"
 
 flutter:
   uses-material-design: true
