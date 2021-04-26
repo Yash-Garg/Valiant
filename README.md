@@ -4,6 +4,11 @@
 
 A complex and random password generator written in Flutter..
 
+## Screenshots
+
+| ![screen 1](https://raw.githubusercontent.com/Yash-Garg/Valiant/dev/assets/screen-1.png) | ![screen 2](https://raw.githubusercontent.com/Yash-Garg/Valiant/dev/assets/screen-2.png) |
+| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+
 ## Run Locally
 
 Clone the project
