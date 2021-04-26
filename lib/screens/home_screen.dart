@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(padding: EdgeInsets.all(5)),
                         Container(
-                          height: MediaQuery.of(context).size.height * 0.2,
+                          height: 180,
                           decoration: new BoxDecoration(
                             color: secondaryColor,
                             shape: BoxShape.rectangle,
@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(padding: EdgeInsets.all(5)),
                         Container(
-                          height: MediaQuery.of(context).size.height * 0.1,
+                          height: 70,
                           decoration: new BoxDecoration(
                             color: secondaryColor,
                             shape: BoxShape.rectangle,
