@@ -1,11 +1,11 @@
 import 'dart:math';
 
 String generateRandomPass({
-  bool isWithLetters = true,
+  bool isWithLowercase = true,
   bool isWithUppercase = true,
   bool isWithNumbers = true,
   bool isWithSpecial = false,
-  int numberCharPassword = 18,
+  int numberCharPassword = 16,
 }) {
   String _lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
   String _upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -14,7 +14,7 @@ String generateRandomPass({
 
   String _allowedChars = "";
 
-  _allowedChars += (isWithLetters ? _lowerCaseLetters : '');
+  _allowedChars += (isWithLowercase ? _lowerCaseLetters : '');
   _allowedChars += (isWithUppercase ? _upperCaseLetters : '');
   _allowedChars += (isWithNumbers ? _numbers : '');
   _allowedChars += (isWithSpecial ? _special : '');

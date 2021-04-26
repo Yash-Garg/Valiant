@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:share/share.dart';
 import 'package:valiant/main.dart';
+import 'package:valiant/utils/password_gen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,14 +11,26 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   double _currentSliderValue = 16.0;
+  bool withLowercase = true;
+  bool withUppercase = true;
+  bool withNumbers = true;
+  bool withSpecial = false;
+  late String generatedPass;
 
-  void _shareGeneratedPassword() {
-    Share.share("TODO");
+  _genRandomPass() {
+    generatedPass = generateRandomPass(
+      isWithLowercase: withLowercase,
+      isWithSpecial: withSpecial,
+      isWithUppercase: withUppercase,
+      isWithNumbers: withNumbers,
+      numberCharPassword: _currentSliderValue.toInt(),
+    );
   }
 
   @override
   void initState() {
     super.initState();
+    _genRandomPass();
   }
 
   @override
@@ -66,18 +78,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         Stack(
                           children: [
                             Container(
-                              height: 180,
+                              height: 160,
                               decoration: new BoxDecoration(
                                 color: secondaryColor,
                                 shape: BoxShape.rectangle,
                                 borderRadius:
                                     new BorderRadius.all(Radius.circular(12)),
                               ),
-                              child: Center(
+                              child: Container(
+                                margin: EdgeInsets.all(30),
+                                alignment: Alignment.center,
                                 child: Text(
-                                  "n6gQ28%Wr5U*Bvbee!%tW4#X!R7",
+                                  "$generatedPass",
                                   style: TextStyle(fontSize: 18),
-                                  maxLines: 5,
+                                  maxLines: 3,
                                 ),
                               ),
                             ),
@@ -138,8 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: MediaQuery.of(context).size.width * 0.7,
                                 child: Slider(
                                   min: 8.0,
-                                  max: 32.0,
-                                  divisions: 24,
+                                  max: 64.0,
                                   label: _currentSliderValue.round().toString(),
                                   onChanged: (value) {
                                     setState(() {
@@ -150,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               Text(
-                                "32",
+                                "64",
                                 style: TextStyle(fontSize: 17),
                               ),
                             ],
@@ -192,8 +205,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
-                                  value: true,
-                                  onChanged: (value) {},
+                                  value: withNumbers,
+                                  onChanged: (value) {
+                                    withNumbers = value;
+                                    setState(() {
+                                      value = withNumbers;
+                                    });
+                                  },
                                   activeColor: Colors.blue,
                                 )
                               ],
@@ -220,8 +238,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
-                                  value: true,
-                                  onChanged: (value) {},
+                                  value: withLowercase,
+                                  onChanged: (value) {
+                                    withLowercase = value;
+                                    setState(() {
+                                      value = withLowercase;
+                                    });
+                                  },
                                   activeColor: Colors.blue,
                                 )
                               ],
@@ -248,8 +271,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
-                                  value: true,
-                                  onChanged: (value) {},
+                                  value: withUppercase,
+                                  onChanged: (value) {
+                                    withUppercase = value;
+                                    setState(() {
+                                      value = withUppercase;
+                                    });
+                                  },
                                   activeColor: Colors.blue,
                                 )
                               ],
@@ -276,8 +304,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
-                                  value: true,
-                                  onChanged: (value) {},
+                                  value: withSpecial,
+                                  onChanged: (value) {
+                                    withSpecial = value;
+                                    setState(() {
+                                      value = withSpecial;
+                                    });
+                                  },
                                   activeColor: Colors.blue,
                                 )
                               ],
@@ -297,7 +330,6 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               height: 50,
               child: ElevatedButton(
-                onPressed: () {},
                 child: Ink(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -317,6 +349,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                onPressed: () {
+                  setState(() {
+                    _genRandomPass();
+                  });
+                },
               ),
             ),
           ),
