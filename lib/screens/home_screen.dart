@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   double _currentSliderValue = 16.0;
   bool withLowercase = true;
-  bool withUppercase = true;
+  bool withUppercase = false;
   bool withNumbers = true;
   bool withSpecial = false;
   late String generatedPass;
