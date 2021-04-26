@@ -6,6 +6,10 @@ import 'package:valiant/screens/splash_screen.dart';
 
 void main() => runApp(MyApp());
 
+const primaryColor = Color(0xFF050f2e);
+const secondaryColor = Color(0xFF091741);
+const textColor = Color(0xFF7380ad);
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,9 +31,18 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(
         brightness: Brightness.dark,
-        fontFamily: GoogleFonts.openSans().fontFamily,
-        appBarTheme: AppBarTheme(color: Colors.transparent),
-        scaffoldBackgroundColor: Colors.black,
+        fontFamily: GoogleFonts.alata().fontFamily,
+        appBarTheme: AppBarTheme(color: primaryColor),
+        scaffoldBackgroundColor: primaryColor,
+        sliderTheme: SliderTheme.of(context).copyWith(
+          activeTrackColor: Colors.blue,
+          inactiveTrackColor: Colors.white,
+          trackShape: RectangularSliderTrackShape(),
+          trackHeight: 3,
+          thumbColor: Colors.white,
+          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
+          valueIndicatorColor: Colors.black,
+        ),
       ),
     );
   }
