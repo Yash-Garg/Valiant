@@ -63,6 +63,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius:
                                 new BorderRadius.all(Radius.circular(12)),
                           ),
+                          child: Center(
+                              child: Text(
+                            "n6gQ28%Wr5U*Bvbee!%tW4#X!R7",
+                            style: TextStyle(fontSize: 18),
+                            maxLines: 5,
+                          )),
                         ),
                       ],
                     ),
