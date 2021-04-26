@@ -1,6 +1,7 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:valiant/main.dart';
 import 'package:valiant/utils/password_gen.dart';
@@ -93,6 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "$generatedPass",
                                   style: TextStyle(fontSize: 18),
                                   maxLines: 3,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
@@ -110,7 +112,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                     icon: Icon(Icons.content_copy),
                                     color: Colors.white,
                                     onPressed: () {
-                                      FlutterClipboard.copy(generatedPass);
+                                      FlutterClipboard.copy(generatedPass)
+                                          .then((value) {
+                                        Fluttertoast.showToast(
+                                          msg: 'Password copied to clipboard',
+                                          toastLength: Toast.LENGTH_LONG,
+                                        );
+                                      });
                                     },
                                   ),
                                 ),
