@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:valiant/screens/about_screen.dart';
 import 'package:valiant/screens/home_screen.dart';
 import 'package:valiant/screens/splash_screen.dart';
 
@@ -16,7 +17,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Valiant',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
       initialRoute: "/splash",
       getPages: [
         GetPage(
@@ -27,6 +27,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/home",
           page: () => HomeScreen(),
+        ),
+        GetPage(
+          name: "/about",
+          page: () => AboutScreen(),
         ),
       ],
       theme: ThemeData(

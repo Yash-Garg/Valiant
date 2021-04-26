@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:share/share.dart';
 import 'package:valiant/main.dart';
 
@@ -33,7 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         elevation: 0,
-        actions: [IconButton(icon: Icon(Icons.info_outline), onPressed: () {})],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.info_outline),
+            onPressed: () {
+              Get.toNamed('/about');
+            },
+          )
+        ],
       ),
       body: Column(
         children: [
