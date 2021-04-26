@@ -1,3 +1,4 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -108,7 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconSize: 20,
                                     icon: Icon(Icons.content_copy),
                                     color: Colors.white,
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      FlutterClipboard.copy(generatedPass);
+                                    },
                                   ),
                                 ),
                               ),
