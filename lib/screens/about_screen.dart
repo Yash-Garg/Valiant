@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:valiant/utils/chrome_custom_tabs.dart';
 
 class AboutScreen extends StatefulWidget {
@@ -70,7 +71,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "Valiant",
+                      "${packageInfo.appName}",
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -102,6 +103,19 @@ class _AboutScreenState extends State<AboutScreen> {
           SizedBox(
             height: 50,
           ),
+          ListTile(
+            leading: Icon(
+              FontAwesomeIcons.solidEnvelope,
+              color: Colors.white,
+            ),
+            title: Text(
+              "Email",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            onTap: () {
+              launch("mailto:yashgarg.dev@gmail.com");
+            },
+          ),
           aboutListTile(
             icon: FontAwesomeIcons.github,
             text: "Github",
@@ -116,6 +130,11 @@ class _AboutScreenState extends State<AboutScreen> {
             icon: FontAwesomeIcons.linkedin,
             text: "Linkedin",
             url: "https://www.linkedin.com/mwlite/in/yashgarg1803",
+          ),
+          aboutListTile(
+            icon: FontAwesomeIcons.telegramPlane,
+            text: "Telegram",
+            url: "https://telegram.me/smart_geek",
           ),
         ],
       ),
