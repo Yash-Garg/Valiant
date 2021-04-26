@@ -154,8 +154,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Include Numbers",
-                                  style: TextStyle(fontSize: 18),
+                                  "Include Numbers (0-9)",
+                                  style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
                                   value: true,
@@ -182,8 +182,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Include Lowercase Letters",
-                                  style: TextStyle(fontSize: 18),
+                                  "Include Lowercase Letters (a-z)",
+                                  style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
                                   value: true,
@@ -210,8 +210,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Include Uppercase Letters",
-                                  style: TextStyle(fontSize: 18),
+                                  "Include Uppercase Letters (A-Z)",
+                                  style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
                                   value: true,
@@ -238,8 +238,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Include Special Chars",
-                                  style: TextStyle(fontSize: 18),
+                                  "Include Special Chars (@#*)",
+                                  style: TextStyle(fontSize: 17),
                                 ),
                                 CupertinoSwitch(
                                   value: true,
