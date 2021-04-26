@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/splash",
           page: () => SplashScreen(),
-          transition: Transition.leftToRightWithFade,
         ),
         GetPage(
           name: "/home",
