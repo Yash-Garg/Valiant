@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 27,
           ),
         ),
+        elevation: 0,
         actions: [IconButton(icon: Icon(Icons.info_outline), onPressed: () {})],
       ),
       body: Column(
@@ -88,38 +89,35 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius:
                                 new BorderRadius.all(Radius.circular(12)),
                           ),
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 15, right: 15),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                  "8",
-                                  style: TextStyle(fontSize: 17),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                "8",
+                                style: TextStyle(fontSize: 17),
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                child: Slider(
+                                  min: 8.0,
+                                  max: 32.0,
+                                  divisions: 24,
+                                  label:
+                                      _sliderDiscreteValue.round().toString(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _sliderDiscreteValue = value;
+                                    });
+                                  },
+                                  value: _sliderDiscreteValue,
                                 ),
-                                Container(
-                                  width: 300,
-                                  child: Slider(
-                                    min: 8.0,
-                                    max: 32.0,
-                                    divisions: 24,
-                                    label:
-                                        _sliderDiscreteValue.round().toString(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _sliderDiscreteValue = value;
-                                      });
-                                    },
-                                    value: _sliderDiscreteValue,
-                                  ),
-                                ),
-                                Text(
-                                  "32",
-                                  style: TextStyle(fontSize: 17),
-                                ),
-                              ],
-                            ),
+                              ),
+                              Text(
+                                "32",
+                                style: TextStyle(fontSize: 17),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -250,11 +248,39 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        Padding(padding: EdgeInsets.only(bottom: 10))
+                        Padding(padding: EdgeInsets.only(bottom: 10)),
                       ],
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Container(
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Ink(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.blue, Color(0xFF2384F3), Colors.blue],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "GENERATE PASSWORD",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
