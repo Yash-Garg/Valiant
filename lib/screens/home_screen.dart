@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double _sliderDiscreteValue = 32.0;
+  double _currentSliderValue = 16.0;
 
   void _shareGeneratedPassword() {
     Share.share("TODO");
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: EdgeInsets.only(left: 5),
                           child: Text(
-                            "LENGTH",
+                            "LENGTH - ${_currentSliderValue.toInt()}",
                             style: TextStyle(color: textColor, fontSize: 17),
                           ),
                         ),
@@ -109,14 +109,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   min: 8.0,
                                   max: 32.0,
                                   divisions: 24,
-                                  label:
-                                      _sliderDiscreteValue.round().toString(),
+                                  label: _currentSliderValue.round().toString(),
                                   onChanged: (value) {
                                     setState(() {
-                                      _sliderDiscreteValue = value;
+                                      _currentSliderValue = value;
                                     });
                                   },
-                                  value: _sliderDiscreteValue,
+                                  value: _currentSliderValue,
                                 ),
                               ),
                               Text(
