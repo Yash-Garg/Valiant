@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:valiant/main.dart';
 import 'package:valiant/utils/password_gen.dart';
 
@@ -92,7 +93,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 alignment: Alignment.center,
                                 child: Text(
                                   "$generatedPass",
-                                  style: TextStyle(fontSize: 18),
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily:
+                                        GoogleFonts.spaceMono().fontFamily,
+                                    letterSpacing: 0.6,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                   maxLines: 3,
                                   textAlign: TextAlign.center,
                                 ),

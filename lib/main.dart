@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(
         brightness: Brightness.dark,
-        fontFamily: GoogleFonts.alata().fontFamily,
+        fontFamily: GoogleFonts.rubik().fontFamily,
         appBarTheme: AppBarTheme(color: primaryColor),
         scaffoldBackgroundColor: primaryColor,
         sliderTheme: SliderTheme.of(context).copyWith(
