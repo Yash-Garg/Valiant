@@ -184,8 +184,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.7,
                                 child: Slider(
-                                  min: 8.0,
-                                  max: 64.0,
+                                  min: 8,
+                                  max: 64,
+                                  divisions: 56,
                                   label: _currentSliderValue.round().toString(),
                                   onChanged: (value) {
                                     setState(() {
@@ -247,6 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     withNumbers = value;
                                     setState(() {
                                       value = withNumbers;
+                                      _genRandomPass();
                                     });
                                     await setNumbers(value);
                                   },
@@ -281,6 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     withLowercase = value;
                                     setState(() {
                                       value = withLowercase;
+                                      _genRandomPass();
                                     });
                                     await setLowerCase(value);
                                   },
@@ -315,6 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     withUppercase = value;
                                     setState(() {
                                       value = withUppercase;
+                                      _genRandomPass();
                                     });
                                     await setUpperCase(value);
                                   },
@@ -349,6 +353,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     withSpecial = value;
                                     setState(() {
                                       value = withSpecial;
+                                      _genRandomPass();
                                     });
                                     await setSpecial(value);
                                   },
