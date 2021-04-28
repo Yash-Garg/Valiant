@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:valiant/main.dart';
 import 'package:valiant/utils/password_gen.dart';
+import 'package:valiant/utils/user_prefs.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -20,6 +22,19 @@ class _HomeScreenState extends State<HomeScreen> {
   bool withSpecial = false;
   late String generatedPass;
 
+  _getInitialSfValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var length = prefs.getInt('currentLength') ?? 16;
+    setState(() {
+      _currentSliderValue = length.toDouble();
+      withLowercase = prefs.getBool('isWithLowerCase') ?? true;
+      withUppercase = prefs.getBool('isWithUpperCase') ?? false;
+      withNumbers = prefs.getBool('isWithNumbers') ?? true;
+      withSpecial = prefs.getBool('isWithSpecial') ?? false;
+      _genRandomPass();
+    });
+  }
+
   _genRandomPass() {
     generatedPass = generateRandomPass(
       isWithLowercase: withLowercase,
@@ -33,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _genRandomPass();
+    _getInitialSfValues();
   }
 
   @override
@@ -177,6 +192,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       _currentSliderValue = value;
                                     });
                                   },
+                                  onChangeEnd: (value) async {
+                                    await setLength(value.toInt());
+                                  },
                                   value: _currentSliderValue,
                                 ),
                               ),
@@ -224,11 +242,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 CupertinoSwitch(
                                   value: withNumbers,
-                                  onChanged: (value) {
+                                  onChanged: (value) async {
                                     withNumbers = value;
                                     setState(() {
                                       value = withNumbers;
                                     });
+                                    await setNumbers(value);
                                   },
                                   activeColor: Colors.blue,
                                 )
@@ -257,11 +276,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 CupertinoSwitch(
                                   value: withLowercase,
-                                  onChanged: (value) {
+                                  onChanged: (value) async {
                                     withLowercase = value;
                                     setState(() {
                                       value = withLowercase;
                                     });
+                                    await setLowerCase(value);
                                   },
                                   activeColor: Colors.blue,
                                 )
@@ -290,11 +310,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 CupertinoSwitch(
                                   value: withUppercase,
-                                  onChanged: (value) {
+                                  onChanged: (value) async {
                                     withUppercase = value;
                                     setState(() {
                                       value = withUppercase;
                                     });
+                                    await setUpperCase(value);
                                   },
                                   activeColor: Colors.blue,
                                 )
@@ -323,11 +344,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 CupertinoSwitch(
                                   value: withSpecial,
-                                  onChanged: (value) {
+                                  onChanged: (value) async {
                                     withSpecial = value;
                                     setState(() {
                                       value = withSpecial;
                                     });
+                                    await setSpecial(value);
                                   },
                                   activeColor: Colors.blue,
                                 )
@@ -367,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                onPressed: () {
+                onPressed: () async {
                   setState(() {
                     _genRandomPass();
                   });

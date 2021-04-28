@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           activeTrackColor: Colors.blue,
           inactiveTrackColor: Colors.white,
           trackShape: RectangularSliderTrackShape(),
-          trackHeight: 3,
+          trackHeight: 2,
           thumbColor: Colors.white,
           thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
           valueIndicatorColor: Colors.black,
