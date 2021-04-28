@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool withUppercase = false;
   bool withNumbers = true;
   bool withSpecial = false;
-  late String generatedPass;
+  String generatedPass = '';
 
   _getInitialSfValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -190,6 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   onChanged: (value) {
                                     setState(() {
                                       _currentSliderValue = value;
+                                      _genRandomPass();
                                     });
                                   },
                                   onChangeEnd: (value) async {
@@ -380,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Center(
                     child: Text(
-                      "GENERATE PASSWORD",
+                      "REGENERATE PASSWORD",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w900,
