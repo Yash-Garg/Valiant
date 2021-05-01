@@ -2,7 +2,13 @@
 
 # Valiant
 
-A complex and random password generator written in Flutter..
+A complex and random password generator written in Flutter.
+
+<a href="https://play.google.com/store/apps/details?id=com.yashgarg.valiant">
+  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+       alt="Get it on Google Play"
+       height="80" />
+</a>
 
 ## Screenshots
 
