@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:valiant/utils/chrome_custom_tabs.dart';
 
 class AboutScreen extends StatefulWidget {
   @override
@@ -37,7 +36,7 @@ class _AboutScreenState extends State<AboutScreen> {
         style: TextStyle(color: Colors.white, fontSize: 18),
       ),
       onTap: () {
-        openCustomTab(url);
+        launch(url);
       },
     );
   }
@@ -71,7 +70,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "${packageInfo.appName}",
+                      "Valiant",
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -103,18 +102,10 @@ class _AboutScreenState extends State<AboutScreen> {
           SizedBox(
             height: 50,
           ),
-          ListTile(
-            leading: Icon(
-              FontAwesomeIcons.solidEnvelope,
-              color: Colors.white,
-            ),
-            title: Text(
-              "Email",
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            onTap: () {
-              launch("mailto:yashgarg.dev@gmail.com");
-            },
+          aboutListTile(
+            icon: FontAwesomeIcons.solidEnvelope,
+            text: "Email",
+            url: "mailto:yashgarg.dev@gmail.com",
           ),
           aboutListTile(
             icon: FontAwesomeIcons.github,
